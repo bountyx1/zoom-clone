@@ -7,5 +7,12 @@ html(lang="en")
         title 
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
     body 
-        h1 it works
+        h1 Chat
+        form#nickname
+            input(type="text", placeholder="Name", required)
+            button save 
+        ul
+        form#message
+            input(type="text", placeholder="Your message", required)
+            button send 
     script(src="/public/js/app.js") 

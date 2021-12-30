@@ -16,12 +16,28 @@ app.get('/', (req, res) => res.render("home"));
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-wss.on("connection", (socket) => {
-    console.log("Connected to browser");
-    socket.send("Hi there how you doing ?");
-    socket.on("close", () => console.log("Disconnected to browser"));
+const sockets = [];
 
-    socket.on("message", (message) => console.log(message.toString()));
+wss.on("connection", (socket, req) => {
+    socket.id = req.headers['sec-websocket-key'];
+    socket.nickname = "Anon";
+
+    sockets.push(socket);
+
+    socket.on("message", (message) => {
+
+        sockets.forEach(sock => {
+            const parse = JSON.parse(message);
+            if (parse.type == "nickname")
+            {
+                socket.nickname = parse.payload;
+            }
+
+            parse.type == "message" ? sock.send(`${socket.nickname}: ${parse.payload}`): null;
+            
+        });
+    });
+
 });
 
 server.listen("3000")
