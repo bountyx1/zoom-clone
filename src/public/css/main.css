@@ -1,0 +1,231 @@
+html {
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    background: linear-gradient(
+      180deg,
+      #509888 12%,
+      #D7DBD6 10%
+    );
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0px;
+}
+
+h1 {
+    margin: 0px;
+}
+input {
+    outline: none;
+    border: 1px solid #FCFCFC;
+    height: 40px;
+    border-radius: 12px;
+}
+
+button {
+    height: 35px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* Chat box */
+.chat-container {
+    display: grid;
+    position: relative;
+    margin: 40px auto 0px auto;
+    width: 80%;
+    height: 800px;
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+}
+
+.shadow {
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Chat sidebar*/
+.sidebar {
+    background-color:#FFFFFF;
+}
+
+.sidebar-header {
+    height: 59px;
+    border-right: 1px solid #DADADA;
+    background-color:#EDEDED;
+}
+
+.sidebar-header input {
+    margin: 15px;
+}
+
+.room-container {
+    display: flex;
+    border-top: 2px solid #F6F6F6;
+    flex-direction: column;
+    height: 730px;
+    max-height: inherit;
+    background-color: #FFFFFF;
+    overflow-y: scroll;
+}
+
+.room {
+    display: flex;
+    border-bottom: 1px solid #F6F6F6;
+    flex-direction: row;
+    padding: 3px 0px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.room:hover {
+    background-color: #EBEBEB;
+}
+
+.active-room {
+    background-color: #EBEBEB;
+}
+
+.room-icon {
+    margin-right: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.room-name {
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Chat main */
+.chatbox {
+    display: flex;
+    flex:auto;
+    flex-direction: column;
+    position: relative;
+}
+
+.chat-header-container {
+padding:16px;
+height: 59px;
+background-color: #EDEDED
+}
+
+/* Chat Messages */
+.chat-message-container {
+    overflow-y: scroll;
+    height: 686px;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    background-size:100% 100%;
+    background-image: url("https://st3.depositphotos.com/10953546/14866/v/600/depositphotos_148660113-stock-illustration-technology-social-media-network-link.jpg");
+
+}
+
+.chat-message-container::-webkit-scrollbar {
+    display: none;
+
+}
+
+/* Message Text */
+.message {
+font-size: 18px;
+padding: 3px 8px;
+margin: 6px 20px;
+}
+
+.self-message {
+    margin-left: 30px;
+    align-self: flex-end;
+    background-color: #DCF7C6;
+}
+
+.other-message {
+    align-self: flex-start;
+    background-color: #FFF;
+}
+
+/* Chat send message and input btn */
+.chat-input-container {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 55px;
+    width: inherit;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    background-color: #F0F0F0;
+    display: flex;
+}
+
+.chat-input-container input {
+    width: 90%;
+}
+
+/* Floating add room btn */
+
+.btn {
+    background-color: #509888;
+    position: absolute;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: #509888;
+    border: none;
+    outline: none;
+    color: #FFF;
+    font-size: 36px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: .3s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  
+  .btn:focus {
+    transform: scale(1.1);
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+
+/*Add Room Modal */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content/Box */
+.modal-content {
+    background-color: #202020;
+    width: 20%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+  }

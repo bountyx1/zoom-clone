@@ -1,43 +1,72 @@
 import express from "express";
 import http from "http";
-import WebSocket from "ws";
+import SocketIO from "socket.io";
 
 const app = express();
 
-// Set template rendering engine
 app.set("view engine", "pug");
 app.set("views", __dirname + "/views" );
-
-// Static file serving
 app.use('/public', express.static(__dirname+ "/public"));
 
 app.get('/', (req, res) => res.render("home"));
 
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
+const wsServer = SocketIO(server);
 
-const sockets = [];
 
-wss.on("connection", (socket, req) => {
-    socket.id = req.headers['sec-websocket-key'];
-    socket.nickname = "Anon";
+const roomAction = (socket) => {
+    // Join and leave a room 
+    socket.on("room", ({name, action, username}) => {
+        console.log(name, action, username);
 
-    sockets.push(socket);
+        if (action === "join") {
+            let message = `${username} has joinned the chatroom`
+            socket.join(name)
+            socket.to(name).emit("bot", message);
+            socket.emit("rooms", allRooms().publicRooms);
+        }
+        else{
+            let message = `${username} has left the chatroom`
+            console.log(message)
+            socket.leave(name);
+            socket.to(name).emit("bot", message);
+        }
+    });
+}
 
-    socket.on("message", (message) => {
-
-        sockets.forEach(sock => {
-            const parse = JSON.parse(message);
-            if (parse.type == "nickname")
-            {
-                socket.nickname = parse.payload;
-            }
-
-            parse.type == "message" ? sock.send(`${socket.nickname}: ${parse.payload}`): null;
-            
+const inActive = (socket) => {
+    socket.on("disconnecting", () => {
+        socket.rooms.forEach(room => {
+            socket.to(room).emit("inactive");
         });
+    })
+}
+
+const message = (socket) => {
+    socket.on("message", ({msg, room}) => {
+        socket.to(room).emit("message", msg);
+    })
+}
+
+
+const allRooms = () => {
+    const sids = wsServer.sockets.adapter.sids;
+    const rooms = wsServer.sockets.adapter.rooms;
+    const publicRooms = [];
+    const privateRooms = [];
+    rooms.forEach((_, key) => {
+        sids.get(key) === undefined ? publicRooms.push(key) : privateRooms.push(key);
     });
 
-});
+    return {publicRooms, privateRooms};
+}
+
+wsServer.on("connection", (socket) => {
+
+    roomAction(socket);
+    message(socket);
+    inActive(socket);
+    socket.emit("rooms", allRooms().publicRooms);
+})
 
 server.listen("3000")
