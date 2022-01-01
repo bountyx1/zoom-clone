@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "zoom clone",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon & npm run scss",
+    "scss": "sass --watch src/scss/main.scss src/public/styles/main.css"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

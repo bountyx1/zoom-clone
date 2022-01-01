@@ -1,8 +1,11 @@
 const socket = io();
 
-let username = prompt("Enter username");
+//let username = prompt("Enter username");
+
 
 localStorage.setItem("username" , username);
+
+document.getElementsByClassName("chat__messages")[0].style.height = "200px"
 
 /*
 Sends and listen for messages of 

@@ -1,0 +1,26 @@
+@import './variables';
+
+*, 
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+html {
+    /* 62.5% of 16*/
+    font-size: 62.5%;
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        $bg-primary 130px,
+        $bg-secondary 130px,
+    );
+}
+
+
+@media screen and (min-width:1024px) {
+
+}
