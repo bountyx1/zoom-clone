@@ -12,6 +12,7 @@ html {
     font-size: 50%;
 }
 
+
 @media screen and (min-width:1024px) {
     html {
         /* 62.5% of 16*/
@@ -22,5 +23,10 @@ html {
             $bg-primary 130px,
             $bg-secondary 130px,
         );
+    }
+
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+        font-weight: 300;
     }
 }

@@ -17,6 +17,11 @@ html {
     height: 100vh;
     background: linear-gradient(to bottom, #509888 130px, #d4dbd9 130px);
   }
+
+  body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+  }
 }
 .icon {
   cursor: pointer;
@@ -135,7 +140,7 @@ html {
   }
 
   #sidebar {
-    flex-basis: 25%;
+    flex-basis: 42rem;
     display: flex;
     flex-direction: column;
     border-right: 2px solid #E5E6E6;
@@ -143,12 +148,35 @@ html {
 
   #sidebar__header {
     background-color: #EDEDED;
-    flex-basis: 61px;
+    flex-basis: 70px;
     border-bottom: 2px solid #E5E6E6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+  }
+  #sidebar__header .profile_container img {
+    width: 4.1rem;
+    height: 4.1rem;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  #sidebar__header .sidebar_action_container {
+    display: flex;
+    width: 160px;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  #sidebar__header .sidebar_action_container span {
+    cursor: pointer;
+    height: 2.7rem;
+    width: 2.7rem;
+    color: #51585C;
   }
 
   #search__box {
-    flex-basis: 52px;
+    flex-basis: 65px;
     background-color: #F6F6F6;
     display: flex;
     position: relative;
@@ -175,6 +203,56 @@ html {
     width: 100%;
     height: 90%;
     transition: width 0.2s ease-in-out;
+  }
+
+  #group__conversation {
+    display: flex;
+    cursor: pointer;
+    padding-right: 6px;
+    padding-left: 6px;
+    flex: 1;
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+  #group__conversation .group__container {
+    display: flex;
+    min-height: 71px;
+    align-items: center;
+  }
+  #group__conversation .group__container .group__icon {
+    flex-basis: 6rem;
+  }
+  #group__conversation .group__container .group__icon img {
+    height: 4.9rem;
+    width: 4.9rem;
+    border-radius: 50%;
+  }
+  #group__conversation .group__container .group__content {
+    /* After making flex basis other item make it flex-grow to take the avaiable space */
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    border-bottom: 2px solid #F2F2F2;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+  }
+  #group__conversation .group__container .group__content section .group__name {
+    font-size: 1.7rem;
+    line-height: 2.1rem;
+  }
+  #group__conversation .group__container .group__content section .message {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #676767;
+  }
+  #group__conversation .group__container .group__content .time {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    color: #676767;
+  }
+  #group__conversation .group__container:hover {
+    background-color: #EBEBEB;
   }
 }
 
