@@ -3,29 +3,29 @@ import { user } from './users.js';
 import {socket} from './socket.js';
 
 export const addRoom = ({name,message,image, time}) => {
-    let roomContainer = createElement("div", {"class":"group__container"});
-    let imageContainer = createElement("div", {"class":"group__icon"});
+    let roomContainer = createElement("div", {"class":"list-item"});
+    let imageContainer = createElement("div", {"class":"thumbnail"});
     let img = createElement("img")
     img.src = image;
     imageContainer.appendChild(img);
 
-    let groupContainer = createElement("div", {"class":"group__content"});
+    let groupContainer = createElement("div", {"class":"content"});
     let section = createElement("section");
-    let groupName = createElement("div", {"class":"group__name"});
-    let messageContainer = createElement("div",  {"class":"message"});
+    let groupName = createElement("div", {"class":"title"});
+    let messageContainer = createElement("div",  {"class":"description"});
     groupName.innerText = name
     messageContainer.innerText = message
     section.appendChild(groupName);
     section.appendChild(messageContainer);
 
-    let timeContainer = createElement("div", {"class":"time"})
+    let timeContainer = createElement("div", {"class":"right__item"})
     timeContainer.innerText = time
     groupContainer.appendChild(section)
     groupContainer.appendChild(timeContainer)
 
     roomContainer.appendChild(imageContainer);
     roomContainer.appendChild(groupContainer)
-    group__conversation.appendChild(roomContainer);
+    conversation_container.appendChild(roomContainer);
 
     let childNodes = roomContainer.querySelectorAll("div, img")
     childNodes.forEach((elem) => elem.setAttribute("data-room-id", name))

@@ -1,0 +1,10 @@
+mixin cardItem(title, description, righitem, src)
+    .list-item
+        if src
+            .thumbnail
+                img(src=src)
+        .content
+            section
+                .title=title 
+                .description=description
+            .right__item=righitem

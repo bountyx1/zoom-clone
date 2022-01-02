@@ -103,7 +103,7 @@
 
 
 
-/* */
+/* Group Icon */
 
 .icon-group {
     display: flex;
@@ -116,4 +116,75 @@
         width: 2.7rem;
         color: #51585C;
     }
+}
+
+
+/* Card Item */
+
+
+.list-item {
+    display: flex;
+    align-items: center;
+    min-height: 8.0rem;
+
+    .thumbnail {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        flex-basis: 6.5rem;
+        img {
+            height: 4.9rem;
+            width: 4.9rem;
+            border-radius: 50%;
+        }
+    }
+
+    .content {
+        flex-grow: 1;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 10px;
+
+        section .title {
+            font-size: 1.4rem;
+            line-height: 2rem;
+        }
+        section .description {
+            font-size: 1.1rem;
+            line-height: 2rem;
+            color:#676767;
+        }
+        .right__item {
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+            color:#676767;
+        }
+    
+    }
+    &:hover {
+        background-color: #EBEBEB;
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+    .list-item {
+        min-height: 7.1rem;
+    }
+
+    .content {
+        border-bottom:2px solid #F2F2F2;
+
+        section .title {
+            font-size: 1.7rem;
+            line-height: 2.1rem;
+        }
+        section .description {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+        }
+    }
+
 }

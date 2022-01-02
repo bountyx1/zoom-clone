@@ -1,0 +1,4 @@
+mixin iconGroup(icons, width)
+    div(class="icon-group" style={"width":`${width}rem`})
+        each icon in icons
+            span(class="material-icons")= icon 

@@ -1,22 +1,12 @@
 #sidebar
-   #sidebar__header
+   .sidebar__header
      .profile_container 
           img(src="https://juststickers.in/wp-content/uploads/2016/05/pikachu-badge.png" class="rd")
-     div(class="icon-group" style={"width":"40%"}) 
-          span(class="material-icons") settings_input_svideo
-          span(class="material-icons") chat
-          span(class="material-icons") more_vert
+          include /common/icon.pug
+     +iconGroup(["settings_input_svideo", "chat", "more_vert"], "17")
    #search__box
         span(class="material-icons") search
         input(type="search" placeholder="Search or start new chat")
-   #group__conversation
-   //- rooms structure
-     .group__container
-          .group__icon
-               img(src="https://juststickers.in/wp-content/uploads/2016/05/pikachu-badge.png")
-          .group__content
-               section
-                    .group__name Navjeet
-                    .message How are you ?
-               .time 8:23 am
-     //
+   #conversation_container
+     include /common/card.pug
+     +cardItem("Navjeet" , "Hey there ?", "10:23", "https://juststickers.in/wp-content/uploads/2016/05/pikachu-badge.png")
