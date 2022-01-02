@@ -116,6 +116,19 @@ html {
   width: 4.8rem;
 }
 
+/* */
+.icon-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.icon-group span {
+  cursor: pointer;
+  height: 2.7rem;
+  width: 2.7rem;
+  color: #51585C;
+}
+
 #chat__container {
   position: fixed;
   width: 100%;
@@ -140,8 +153,8 @@ html {
   }
 
   #sidebar {
-    flex-basis: 42rem;
     display: flex;
+    min-width: 42rem;
     flex-direction: column;
     border-right: 2px solid #E5E6E6;
   }
@@ -158,21 +171,6 @@ html {
   #sidebar__header .profile_container img {
     width: 4.1rem;
     height: 4.1rem;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-  #sidebar__header .sidebar_action_container {
-    display: flex;
-    width: 160px;
-    height: 100%;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-  #sidebar__header .sidebar_action_container span {
-    cursor: pointer;
-    height: 2.7rem;
-    width: 2.7rem;
-    color: #51585C;
   }
 
   #search__box {
@@ -253,6 +251,81 @@ html {
   }
   #group__conversation .group__container:hover {
     background-color: #EBEBEB;
+  }
+}
+/* Chat */
+@media screen and (min-width: 1024px) {
+  #chat {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-repeat: repeat no-repeat;
+    background-image: url("https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg");
+  }
+  #chat .header {
+    min-height: 7rem;
+    background-color: #EDEDED;
+    box-shadow: 0px 2px 4px #d4dbd9;
+  }
+  #chat .content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column-reverse;
+    padding: 2px 20px;
+    color: #363030;
+    font-size: 1.5rem;
+    overflow-y: scroll;
+  }
+  #chat .content .message {
+    padding: 12px 25px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background-color: #fff;
+    align-self: flex-start;
+  }
+  #chat .content .message .time {
+    margin-top: 3px;
+    text-align: right;
+    font-size: 1rem;
+    color: #979FA7;
+  }
+  #chat .content .self {
+    background-color: #DCF7C6;
+    align-self: flex-end;
+  }
+  #chat .content .self .time {
+    text-align: left;
+  }
+  #chat .text__input {
+    background-color: #EDEDED;
+    flex-basis: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 16px;
+  }
+  #chat .text__input #smileIcn {
+    flex-basis: 3rem;
+    color: #51585C;
+  }
+  #chat .text__input #mikeIcn {
+    flex-basis: 4rem;
+    color: #51585C;
+  }
+  #chat .text__input textarea {
+    flex-grow: 1;
+    max-width: 92%;
+    margin: 12px 0px;
+    height: 4.5rem;
+    outline: none;
+    overflow: hidden;
+    border: 0;
+    resize: none;
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 2rem;
+    align-self: center;
   }
 }
 

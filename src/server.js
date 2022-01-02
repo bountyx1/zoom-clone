@@ -2,6 +2,8 @@ import express from "express";
 import http from "http";
 import SocketIO from "socket.io";
 
+import {messageFormat} from './utils';
+
 const app = express();
 
 app.set("view engine", "pug");
@@ -17,19 +19,19 @@ const wsServer = SocketIO(server);
 
 const roomAction = (socket) => {
     // Join and leave a room 
-    socket.on("room", ({name, action, username}) => {
-
+    socket.on("room", ({room, action, username}) => {
         if (action === "join") {
             let message = `${username} has joinned the chatroom`
-            socket.join(name)
-            socket.to(name).emit("bot", message);
+            socket.join(room)
+            socket.to(room).emit("bot", messageFormat(message));
             socket.emit("rooms", allRooms().publicRooms);
         }
         else{
             let message = `${username} has left the chatroom`
-            socket.leave(name);
-            socket.to(name).emit("bot", message);
+            socket.leave(room);
+            socket.to(room).emit("bot", message(messageFormat));
         }
+
     });
 }
 
@@ -42,8 +44,8 @@ const inActive = (socket) => {
 }
 
 const message = (socket) => {
-    socket.on("message", ({msg, room}) => {
-        socket.to(room).emit("message", msg);
+    socket.on("message", ({msg, room, username}) => {
+        socket.to(room).emit("message", messageFormat(msg));
     })
 }
 
@@ -61,7 +63,6 @@ const allRooms = () => {
 }
 
 wsServer.on("connection", (socket) => {
-
     roomAction(socket);
     message(socket);
     inActive(socket);
