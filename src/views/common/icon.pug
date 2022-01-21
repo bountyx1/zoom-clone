@@ -1,4 +1,7 @@
 mixin iconGroup(icons, width)
     div(class="icon-group" style={"width":`${width}rem`})
         each icon in icons
-            span(class="material-icons")= icon 
+            span(class="material-icons")= icon
+
+mixin icon(name, size="2rem")
+    span(class="material-icons" id="smileIcn" style={"font-size":size})=name 

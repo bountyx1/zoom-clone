@@ -9,9 +9,13 @@
 }
 
 html {
-    font-size: 58%;
+    font-size: 60%;
 }
 
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
 
 @media screen and (min-width:1024px) {
     html {
@@ -25,8 +29,4 @@ html {
         );
     }
 
-    body {
-        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-        font-weight: 300;
-    }
 }

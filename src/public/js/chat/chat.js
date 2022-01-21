@@ -1,18 +1,16 @@
-import { socket } from './socket.js';
-import {createElement} from './utils.js'
-import {user} from './users.js';
+import { socket } from '../socket.js';
+import {user} from '../sidebar/profile.js';
 
 export const addMessage = ({message, time}, classname="self") => {
     let messages = document.querySelectorAll("section.content")[0];
-
-    let div = createElement("div", {"class": `message ${classname}`})
-    let divTime = createElement("div", {"class": `time`})
-    div.innerText = message;
-    divTime.innerText = time
-    div.appendChild(divTime);
+    let messageHtml = `
+    <div class="message ${classname}">
+        ${message}
+        <div class="${time}">
+        ${time}
+    </div>`;
 
     messages.insertBefore(div, messages.childNodes[0]);
-    // Auto scroll
     messages.scrollTop = messages.scrollHeight;
 }
 

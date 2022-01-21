@@ -1,4 +1,8 @@
-div(id="add-room-modal" class="modal")  
-    div.modal-content
-        input(type="text" placeholder="Enter Room to create")
-        button(id="submitRoom") create
+include icon.pug
+mixin modalMixin()
+    div(class="modal" id="modal")
+        div(class="modal-close-btn")
+            +icon("close")
+        div.modal-content
+            block
+    div(class="modal-overlay" id="modal-overlay")

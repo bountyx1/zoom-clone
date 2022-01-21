@@ -1,4 +1,9 @@
 
+#sidebar {
+    position: relative;
+}
+
+
 .sidebar__header {
     display: flex;
     justify-content: space-between;
@@ -43,6 +48,90 @@
         background-color: $color-secondary;
         padding-left: 1.2rem ;
         border-bottom: 2px solid #E5E6E6;
+    }
+
+    /* Complete it later */
+    #profile-bar {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        right: 0;
+        z-index: 1  ;
+        background-color:#EDEDED;
+        top: 0;
+        left: 0;
+        transition: width 0.3s ease-in-out;
+
+        .leftHeader {
+            display: flex;
+            background-color: #69C1A5;
+            width: 100%;
+            height: 9.6rem;
+            padding: 0px 20px;
+            align-items: flex-end;
+        }
+        
+        .profile-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 20rem;
+                height: 20rem;
+                align-self: center;
+            }
+
+            .item-container {
+                background-color: #fff;
+                height: 9rem;
+                display: flex;
+                padding: 13px 30px;
+                flex-direction: column;
+                border-top: 1px solid $bg-secondary;
+                border-bottom: 1px solid $bg-secondary;
+                justify-content: space-around;
+                
+                span {
+                    color:$bg-primary;
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                }
+
+                .input-container {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    input {
+                        height: 4rem;
+                        flex-basis: 100%;
+                        border: 0;
+                        font-size: 2rem;
+                        cursor: none;
+                        outline: none;
+                        border-bottom: 2px solid $bg-primary;
+                    }
+
+                    span {
+                        position: absolute;
+                        font-size: 2.4rem;
+                        right: 0;
+                    }
+
+                }
+            }
+
+            .message {
+                height: 7rem;
+                padding: 2rem;
+                font-size: 1.2rem;
+                color:gray;
+                align-self: center;
+            }
+        }
     }
 
     #search__box {

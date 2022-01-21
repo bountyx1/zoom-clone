@@ -1,0 +1,10 @@
+#sidebar
+   .sidebar__header
+     .profile_container 
+          img(src="https://juststickers.in/wp-content/uploads/2016/05/pikachu-badge.png" class="rd" onClick="leftDrawer.style.width.display='flex';leftDrawer.style.width = '100%';")
+          include /common/icon.pug
+     +iconGroup(["settings_input_svideo", "chat", "more_vert"], "17")
+   #search__box
+        span(class="material-icons") search
+        input(type="search" placeholder="Search or start new chat")
+   #conversation_container

@@ -1,5 +1,5 @@
 rooms = [
-    {"name":"Navjeet", "message": "Hey did you done nommad project ?", "image": "http://pm1.narvii.com/6761/cb2442de31ba3a34f3237ce81f133a380040db64v2_00.jpg", "time":"5:23 am"},
+    {"name":"noona", "message": "Hey did you done nommad project ?", "image": "http://pm1.narvii.com/6761/cb2442de31ba3a34f3237ce81f133a380040db64v2_00.jpg", "time":"5:23 am"},
     {"name":"abhishek", "message": "are you there ???", "image": "https://static.wikia.nocookie.net/pokemon-cafe-mix/images/5/59/Snorlax_Icon.png", "time":"2:23 am"},
     {"name":"developer", "message": "This is cool bro", "image": "https://www.kindpng.com/picc/m/9-96405_download-pikachu-png-hd-for-designing-projects-pokemon.png", "time":"3:23 am"},
     {"name":"kakao friends", "message": "did you watched that movie ryan", "image": "https://listimg.pinclipart.com/picdir/s/527-5272658_pokmon-go-pikachu-ash-ketchum-groudon-clip-art.png", "time":"6:23 am"},
