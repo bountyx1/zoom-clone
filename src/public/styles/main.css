@@ -222,6 +222,10 @@ body {
   }
 }
 /* Modal */
+#modal_container {
+  display: none;
+}
+
 .modal {
   display: flex;
   position: fixed;
@@ -237,6 +241,7 @@ body {
 
 .modal-close-btn {
   position: absolute;
+  cursor: pointer;
   right: 0;
 }
 
@@ -317,12 +322,12 @@ body {
   }
 
   /* Complete it later */
-  #profile-bar {
+  #profile_bar {
     position: absolute;
-    display: flex;
+    display: hidden;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 0;
     right: 0;
     z-index: 1;
     background-color: #EDEDED;
@@ -330,25 +335,29 @@ body {
     left: 0;
     transition: width 0.3s ease-in-out;
   }
-  #profile-bar .leftHeader {
+  #profile_bar .leftHeader {
     display: flex;
     background-color: #69C1A5;
     width: 100%;
     height: 9.6rem;
-    padding: 0px 20px;
     align-items: flex-end;
   }
-  #profile-bar .profile-container {
+  #profile_bar .leftHeader #close_drawer {
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  #profile_bar .profile-container {
     flex-grow: 1;
-    display: flex;
+    display: none;
     flex-direction: column;
   }
-  #profile-bar .profile-container img {
+  #profile_bar .profile-container img {
     width: 20rem;
     height: 20rem;
     align-self: center;
   }
-  #profile-bar .profile-container .item-container {
+  #profile_bar .profile-container .item-container {
     background-color: #fff;
     height: 9rem;
     display: flex;
@@ -358,17 +367,17 @@ body {
     border-bottom: 1px solid #d4dbd9;
     justify-content: space-around;
   }
-  #profile-bar .profile-container .item-container span {
+  #profile_bar .profile-container .item-container span {
     color: #509888;
     font-weight: 400;
     font-size: 1.4rem;
   }
-  #profile-bar .profile-container .item-container .input-container {
+  #profile_bar .profile-container .item-container .input-container {
     display: flex;
     align-items: center;
     position: relative;
   }
-  #profile-bar .profile-container .item-container .input-container input {
+  #profile_bar .profile-container .item-container .input-container input {
     height: 4rem;
     flex-basis: 100%;
     border: 0;
@@ -377,12 +386,12 @@ body {
     outline: none;
     border-bottom: 2px solid #509888;
   }
-  #profile-bar .profile-container .item-container .input-container span {
+  #profile_bar .profile-container .item-container .input-container span {
     position: absolute;
     font-size: 2.4rem;
     right: 0;
   }
-  #profile-bar .profile-container .message {
+  #profile_bar .profile-container .message {
     height: 7rem;
     padding: 2rem;
     font-size: 1.2rem;
@@ -535,6 +544,7 @@ body {
     flex-direction: row;
   }
 }
+/* Fix Mobile Later*/
 .add-room-container {
   flex: 1;
   display: flex;
@@ -547,56 +557,30 @@ body {
 }
 .add-room-container .body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   margin: 0px 2rem;
+  flex-grow: 0.5;
+  justify-content: space-evenly;
 }
 .add-room-container .body input {
   outline: none;
   border: 2px solid #d4dbd9;
-  border-radius: 20px;
   width: 100%;
+  border-radius: 20px;
   padding: 8px;
 }
 .add-room-container .body button {
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
+  padding: 8px 0px;
   outline: none;
   border: 0;
   cursor: pointer;
   background-color: #509888;
   border: 1px solid #d4dbd9;
-  min-width: 20%;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  height: 100%;
-  position: absolute;
-  right: 0px;
-}
-
-.signup-container header {
-  font-size: 4rem;
-  text-align: center;
-}
-.signup-container .input-container {
-  display: flex;
-  flex-direction: column;
-}
-.signup-container .input-container input {
-  outline: none;
-  min-height: 3rem;
-  border-radius: 0.6rem;
-  padding-left: 1rem;
-  margin: 10px 0;
-  border: 1px solid #d4dbd9;
-  background-color: #d4dbd9;
-}
-.signup-container .input-container button {
-  outline: none;
-  border: 0;
-  min-height: 3rem;
-  border-radius: 0.6rem;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

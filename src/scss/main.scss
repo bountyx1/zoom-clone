@@ -37,7 +37,7 @@
 
 }
 
-
+/* Fix Mobile Later*/
 .add-room-container{
     flex: 1;
     display: flex;
@@ -51,61 +51,31 @@
 
     .body {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         position: relative;
-        margin:0px 2rem;
+        margin: 0px 2rem;
+        flex-grow: 0.5;
+        justify-content: space-evenly;
+
         input {
             outline: none;
             border: 2px solid $bg-secondary;
-            border-radius: 20px;
             width: 100%;
+            border-radius: 20px;
             padding: 8px;
         }
+
         button {
             color: #fff;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: bold;
+            padding: 8px 0px;
             outline: none;
             border: 0;
             cursor: pointer;
             background-color: $bg-primary;
             border: 1px solid $bg-secondary;    
-            min-width: 20%;
-            border-top-right-radius: 20px;
-            border-bottom-right-radius: 20px;
-            height: 100%;
-            position: absolute;
-            right: 0px;
-        }
-    }
-}
-
-
-.signup-container {
-    
-    header {
-        font-size: 4rem;
-        text-align:center;
-    }
-
-    .input-container {
-        display: flex;
-        flex-direction:column;
-        input {
-            outline: none;
-            min-height: 3rem;
-            border-radius: .6rem;
-            padding-left: 1rem;
-            margin: 10px 0;
-            border: 1px solid $bg-secondary;
-            background-color: $bg-secondary;
-        }
-    
-        button {
-            outline: none;
-            border: 0;
-            min-height: 3rem;
-            border-radius: .6rem;
+            border-radius: 20px;
         }
     }
 }

@@ -1,8 +1,11 @@
 include mixins.pug
-#profile-bar
+include /common/icon.pug
+
+#profile_bar
      header.leftHeader
+               span(id="close_drawer" class="material-icons" onClick="handleProfileDrawer('close')") arrow_back
      .profile-container
           img(src="https://juststickers.in/wp-content/uploads/2016/05/pikachu-badge.png") 
-          +inputbox("Your Name", "Navjeet")
+          +inputbox("Your username", "anon", "username", "changeProfile('username',this)")
           .message This is  your username. This Name will be visible to groups you join.
-          +inputbox("About", "I am busy")
+          +inputbox("About", "nothing", "aboutme", "changeProfile('aboutme',this)")

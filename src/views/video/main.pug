@@ -1,4 +1,5 @@
 #video__container
-    video#me(autoplay,playsinline width="400", height="400")
-    span(class="material-icons" , id="mute") volume_off
-    span(class="material-icons", id="camera") videocam_off
+    video#me(autoplay,playsinline)
+    span(class="material-icons" , id="mute" style="color:white" onClick="onClickMute()") volume_up
+    span(class="material-icons", id="camera" style="color:white" onClick="onClickCam()") videocam_on
+    select(id="change" onChange="hanldeCamChange()")

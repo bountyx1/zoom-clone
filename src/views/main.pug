@@ -1,19 +1,14 @@
 include common/modal.pug
+
 div.main
     #chat__container
         include sidebar/main.pug
         include chat/main.pug
-    .fab +
-    //+modalMixin()
+    div(class="fab" onClick="handleModal()")="+"
+    +modalMixin()
         .add-room-container
             header Add Room
             .body
-                input(type="text" placeholder="Room name")
-                button submit
-    //+modalMixin()
-        .signup-container
-            header Sign up
-            div.input-container
-                input(type="text" placeholder="Your Full Name")
-                input(type="text" placeholder="username")
-                button submit
+                input(type="text" placeholder="Room name" id="room_name")
+                input(type="url" placeholder="Room image" id="room_image")
+                button(id="room_submit") add

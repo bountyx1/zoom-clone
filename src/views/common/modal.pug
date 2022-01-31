@@ -1,8 +1,8 @@
-include icon.pug
 mixin modalMixin()
-    div(class="modal" id="modal")
-        div(class="modal-close-btn")
-            +icon("close")
-        div.modal-content
-            block
-    div(class="modal-overlay" id="modal-overlay")
+    #modal_container
+        div(class="modal" id="modal")
+            div(class="modal-close-btn")
+                span(class="material-icons" style={"font-size":"2rem"} onClick="handleModal('close')")="close"
+            div.modal-content
+                block
+        div(class="modal-overlay" id="modal-overlay")

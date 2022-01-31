@@ -1,6 +1,6 @@
-mixin inputbox(type, value)
+mixin inputbox(type, value, id, onClick)
     .item-container
-               span type
+               span=type
                .input-container
-                    input(type="text" disabled="true" value=value)
-                    span(class="material-icons") edit
+                    input(type="text" disabled="true" value=value id=id)
+                    span(class="material-icons" onClick=onClick) edit
