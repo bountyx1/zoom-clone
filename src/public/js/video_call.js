@@ -83,11 +83,25 @@ async function init() {
         // Start meeting timer
         startMeetingTimer();
 
+        // Hide screen share button on mobile or if not supported
+        checkScreenShareSupport();
+
         console.log('✅ Media devices initialized');
 
     } catch (error) {
         console.error('❌ Error accessing media devices:', error);
         alert('Could not access camera/microphone. Please check permissions.');
+    }
+}
+
+// Check if screen sharing is supported
+function checkScreenShareSupport() {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const hasGetDisplayMedia = navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia;
+
+    if (isMobile || !hasGetDisplayMedia) {
+        screenshareBtn.style.display = 'none';
+        console.log('ℹ️ Screen sharing not available on this device');
     }
 }
 
@@ -271,6 +285,17 @@ screenshareBtn.addEventListener('click', async () => {
 
     } catch (error) {
         console.error('❌ Error sharing screen:', error);
+
+        let errorMessage = 'Could not share screen. ';
+        if (error.name === 'NotAllowedError') {
+            errorMessage += 'Permission denied.';
+        } else if (error.name === 'NotSupportedError') {
+            errorMessage += 'Screen sharing is not supported on this device.';
+        } else {
+            errorMessage += 'Please try again.';
+        }
+
+        alert(errorMessage);
     }
 });
 
