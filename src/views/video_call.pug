@@ -1,0 +1,93 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Video Call - #{roomId}
+        link(rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons")
+        link(rel="stylesheet" href="/public/styles/main.css")
+        style.
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: 'Roboto', 'Arial', sans-serif; overflow: hidden; }
+    body
+        .video-call-container
+            // Header
+            .video-header
+                .room-info
+                    h2.room-name= roomId
+                    span.participant-count
+                        span.material-icons group
+                        span#participant-count 1
+                .header-controls
+                    button.icon-btn#info-btn(title="Meeting details")
+                        span.material-icons info
+                    button.icon-btn#settings-btn(title="Settings")
+                        span.material-icons settings
+            
+            // Video Grid
+            .video-grid#video-grid
+                .video-wrapper.self-video
+                    video#local-video(autoplay playsinline muted)
+                    .video-overlay
+                        span.participant-name You
+                        span.mic-status.material-icons mic_off
+            
+            // Control Bar
+            .control-bar
+                .control-group.left
+                    .time-display#meeting-time 00:00
+                
+                .control-group.center
+                    button.control-btn#mute-btn(title="Mute/Unmute")
+                        span.material-icons mic
+                    
+                    button.control-btn#camera-btn(title="Turn off camera")
+                        span.material-icons videocam
+                    
+                    button.control-btn#screenshare-btn(title="Share screen")
+                        span.material-icons present_to_all
+                    
+                    button.control-btn.danger#leave-btn(title="Leave call")
+                        span.material-icons call_end
+                
+                .control-group.right
+                    button.control-btn#chat-btn(title="Chat")
+                        span.material-icons chat
+                    
+                    button.control-btn#participants-btn(title="Participants")
+                        span.material-icons people
+                    
+                    button.control-btn#more-btn(title="More options")
+                        span.material-icons more_vert
+            
+            // Chat Panel (Collapsible)
+            .side-panel#chat-panel
+                .panel-header
+                    h3 Chat
+                    button.close-panel#close-chat
+                        span.material-icons close
+                .panel-content
+                    .chat-messages#chat-messages
+                    .chat-input-container
+                        input#chat-input(type="text" placeholder="Send a message...")
+                        button#send-message
+                            span.material-icons send
+            
+            // Participants Panel (Collapsible)
+            .side-panel#participants-panel
+                .panel-header
+                    h3 Participants
+                    button.close-panel#close-participants
+                        span.material-icons close
+                .panel-content
+                    .participants-list#participants-list
+                        .participant-item
+                            .participant-avatar You
+                            .participant-info
+                                span.participant-name You
+                                span.participant-status Host
+                            .participant-actions
+                                span.material-icons.muted mic_off
+
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/video_call.js")
