@@ -172,4 +172,12 @@ wsServer.on("connection", (socket) => {
     });
 });
 
-server.listen("3000")
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    server.listen(3000, () => {
+        console.log('✅ Server running on http://localhost:3000');
+    });
+}
+
+// Export for Vercel (but WebSockets won't work on Vercel)
+export default app;

@@ -4,16 +4,18 @@
   "description": "zoom clone",
   "scripts": {
     "dev": "nodemon & npm run scss",
-    "scss": "sass --watch src/scss/main.scss src/public/styles/main.css"
+    "scss": "sass --watch src/scss/main.scss src/public/styles/main.css",
+    "build": "sass src/scss/main.scss src/public/styles/main.css",
+    "start": "babel-node src/server.js"
   },
   "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.5",
     "@babel/node": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
-    "nodemon": "^2.0.15"
-  },
-  "dependencies": {
     "express": "^4.17.2",
     "pug": "^3.0.2",
     "socket.io": "^4.4.0",
