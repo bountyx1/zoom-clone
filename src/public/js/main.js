@@ -102,6 +102,10 @@ const addRoom = ({ name, message, image, time }) => {
     let childNodes = room.querySelectorAll("div, img");
     childNodes.forEach((elem) => elem.setAttribute("data-room-id", name));
     conversation_container.insertBefore(room, rooms[0]);
+
+    // Add room to allRooms array so it can be found when joining
+    const roomData = { name, image, message, time };
+    allRooms.unshift(roomData);
 }
 
 const actionRoom = (room, action = "join") => {
