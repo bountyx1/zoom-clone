@@ -118,13 +118,23 @@ const actionRoom = (room, action = "join") => {
 
 const handleJoinRoom = (element) => {
     let name = element.dataset["room"];
-    room = allRooms.filter(room => room.name === name)[0];
+    const room = allRooms.filter(r => r.name === name)[0];
+
+    if (!room) {
+        console.error('Room not found:', name);
+        return;
+    }
+
     actionRoom(room);
 
-    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    // Show chat on mobile
+    const isMobile = window.innerWidth <= 1023;
     if (isMobile) {
-        document.body.requestFullscreen()
-        document.getElementById("chat").style.width = "100%";
+        const chatElement = document.getElementById("chat");
+        if (chatElement) {
+            chatElement.classList.add("active");
+            chatElement.style.width = "100%";
+        }
     }
 };
 
