@@ -471,3 +471,221 @@
         background: rgba(255, 255, 255, 0.3);
     }
 }
+
+// Mobile Responsive Styles
+@media screen and (max-width: 768px) {
+    .video-call-container {
+        overflow: hidden;
+    }
+
+    .video-header {
+        padding: 12px 16px;
+
+        .room-info {
+            gap: 8px;
+
+            .room-name {
+                font-size: 16px;
+            }
+
+            .participant-count {
+                font-size: 12px;
+
+                .material-icons {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .header-controls {
+            gap: 4px;
+
+            .icon-btn {
+                width: 32px;
+                height: 32px;
+
+                .material-icons {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .video-grid {
+        padding: 8px;
+        gap: 8px;
+        grid-template-columns: 1fr !important;
+
+        .video-wrapper {
+            min-height: 200px;
+            max-height: 300px;
+
+            .video-overlay {
+                opacity: 1;
+                padding: 8px 12px;
+
+                .participant-name {
+                    font-size: 12px;
+                }
+
+                .mic-status {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .control-bar {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .control-group {
+            gap: 8px;
+
+            &.left {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+
+                .time-display {
+                    font-size: 12px;
+                }
+            }
+
+            &.center {
+                order: 1;
+                width: 100%;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            &.right {
+                order: 2;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .control-btn {
+            width: 48px;
+            height: 48px;
+
+            .material-icons {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .side-panel {
+        width: 100%;
+        right: -100%;
+
+        &.open {
+            right: 0;
+        }
+
+        .panel-header {
+            padding: 16px;
+
+            h3 {
+                font-size: 16px;
+            }
+        }
+
+        .panel-content {
+            padding: 12px;
+        }
+    }
+
+    #chat-panel {
+        .chat-messages {
+            min-height: calc(100vh - 180px);
+
+            .chat-message {
+                .message-header {
+                    .sender-name {
+                        font-size: 12px;
+                    }
+
+                    .message-time {
+                        font-size: 11px;
+                    }
+                }
+
+                .message-text {
+                    font-size: 13px;
+                    padding: 6px 10px;
+                }
+            }
+        }
+
+        .chat-input-container {
+            padding: 12px;
+
+            input {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+
+            button {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    }
+
+    #participants-panel {
+        .participants-list {
+            .participant-item {
+                padding: 10px;
+
+                .participant-avatar {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 14px;
+                }
+
+                .participant-info {
+                    .participant-name {
+                        font-size: 13px;
+                    }
+
+                    .participant-status {
+                        font-size: 11px;
+                    }
+                }
+
+                .participant-actions {
+                    .material-icons {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small mobile devices
+@media screen and (max-width: 480px) {
+    .video-header {
+        .room-name {
+            font-size: 14px;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .control-bar {
+        .control-btn {
+            width: 44px;
+            height: 44px;
+
+            .material-icons {
+                font-size: 20px;
+            }
+        }
+    }
+}
